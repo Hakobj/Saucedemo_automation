@@ -50,10 +50,10 @@ cd saucedemo-automation
 ### 3. Running tests:
 ```
 pytest .\tests\ # all tests
-pytest .\tests\test_login.py # login test
+pytest .\tests\test_checkout_flow.py # login test
 ```
 
 ### 3. Running tests with HTML report:
 ```
-pytest .\tests\test_login.py --html=report.html
+pytest .\tests\test_checkout_flow.py --html=report.html
 ```
