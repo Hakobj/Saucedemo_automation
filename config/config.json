@@ -1,0 +1,12 @@
+{
+  "base_url": "https://www.saucedemo.com",
+  "login": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "checkout": {
+    "first_name": "Hakob",
+    "last_name": "Julfayan",
+    "postal_code": "0022"
+  }
+}
