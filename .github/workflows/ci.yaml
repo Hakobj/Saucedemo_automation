@@ -28,4 +28,4 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest ./tests/test_checkout_flow.py --html=report.html
+        HEADLESS=true pytest tests/ --html=report.html
