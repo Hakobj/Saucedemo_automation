@@ -66,4 +66,4 @@ def test_login(driver):
     # Test final page
     checkout_overview_page_obj.click_on_finish_button()
     checkout_complete_text = checkout_complete_page_obj.get_text(checkout_complete_page_obj.CHECKOUT_COMPLETE_SELECTOR)
-    assert "Checkout: Complete!111" in checkout_complete_text, "You are not in checkout complete page!!!"
+    assert "Checkout: Complete!" in checkout_complete_text, "You are not in checkout complete page!!!"
