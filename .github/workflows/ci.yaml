@@ -28,4 +28,4 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest .\tests\test_checkout_flow.py --html=report.html
+        pytest ./tests/test_checkout_flow.py --html=report.html
