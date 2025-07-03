@@ -8,7 +8,7 @@ from ..pages.checkout_complete_page import CheckoutCompletePage
 from ..utils.load_config import load_data
 
 
-def test_login(driver):
+def test_user_can_login_and_complete_checkout(driver):
     # Instantiate all necessary page objects
     login_page_obj = LoginPage(driver)
     home_page_obj = HomePage(driver)
@@ -30,40 +30,49 @@ def test_login(driver):
     login_page_obj.login(username, password)
 
     home_page_text = home_page_obj.get_text(home_page_obj.HOMEPAGE_TITLE_SELECTOR)
-    assert "Products" in home_page_text, "You are not on Home page!!!"
+    expected_text = "Products"
+    assert expected_text in home_page_text, f"Expected text is {expected_text}, actual text is {home_page_text}"
 
     # Test bag item adding
     home_page_obj.select_bag()
     back_to_products_text = bag_page_obj.get_text(bag_page_obj.BACK_TO_PRODUCT_SELECTOR)
-    assert "Back to products" in back_to_products_text, "You are not on Bag page!!!"
+    expected_text = "Back to products"
+    assert expected_text in back_to_products_text, f"Expected text is {expected_text}, actual text is {back_to_products_text}"
 
     # Test added bag
     bag_page_obj.add_bag_into_card()
     remove_btn_text = bag_page_obj.get_text(bag_page_obj.REMOVE_BUTTON_SELECTOR)
-    assert "Remove" in remove_btn_text, "You are not in bag page"
+    expected_text = "Remove"
+    assert expected_text in remove_btn_text, f"Expected text is {expected_text}, actual text is {remove_btn_text}"
 
     # Test shopping card page, checkout button
     bag_page_obj.go_to_shopping_card()
     checkout_btn_text = shopping_card_page_obj.get_text(shopping_card_page_obj.CHECKOUT_SELECTOR)
-    assert "Checkout" in checkout_btn_text, "You are not in Checkout page"
+    expected_text = "Checkout"
+    assert expected_text in checkout_btn_text, f"Expected text is {expected_text}, actual text is {checkout_btn_text}"
 
     # Test checkout
     shopping_card_page_obj.checkout()
     checkout_information_text = checkout_information_page_obj.get_text(checkout_information_page_obj.TITLE_SELECTOR)
-    assert "Checkout: Your Information" in checkout_information_text, "You are not in Checkout: Your Information!!!"
+    expected_text = "Checkout: Your Information"
+    assert expected_text in checkout_information_text, f"Expected text is {expected_text}, actual text is \
+    {checkout_information_text}"
 
     # Test checkout overview
     # Read data
-    config = load_data()
     first_name = config["checkout"]["first_name"]
     last_name = config["checkout"]["last_name"]
     postal_code = config["checkout"]["postal_code"]
 
     checkout_information_page_obj.information_filling(first_name, last_name, postal_code)
     checkout_overview_text = checkout_overview_page_obj.get_text(checkout_overview_page_obj.CHECKOUT_OVERVIEW_SELECTOR)
-    assert "Checkout: Overview" in checkout_overview_text, "You are not in checkout overview page!!!"
+    expected_text = "Checkout: Overview"
+    assert expected_text in checkout_overview_text, f"Expected text is {expected_text}, actual text is \
+    {checkout_overview_text}"
 
     # Test final page
     checkout_overview_page_obj.click_on_finish_button()
     checkout_complete_text = checkout_complete_page_obj.get_text(checkout_complete_page_obj.CHECKOUT_COMPLETE_SELECTOR)
-    assert "Checkout: Complete!" in checkout_complete_text, "You are not in checkout complete page!!!"
+    expected_text = "Checkout: Complete!"
+    assert expected_text in checkout_complete_text, f"Expected text is {expected_text}, actual text is \
+    {checkout_complete_text}"
