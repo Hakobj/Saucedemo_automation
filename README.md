@@ -8,6 +8,9 @@ This project contains end-to-end UI tests for https://www.saucedemo.com using:
 - 📄 HTML Reports via `pytest-html`
 - 🧱 Page Object Model (POM) structure
 
+
+This is also experimenting new changes from Jason onto this branch.
+
 ---
 
 ### 📁 Project Structure
