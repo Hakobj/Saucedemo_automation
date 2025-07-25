@@ -9,7 +9,7 @@ import { CheckoutCompletePage } from '../pages/checkout_complete_page';
 import { testUser } from '../test_data/user_data';
 
 test('End-to-End checkout flow', async ({ page }) => {
-  await page.goto('https://www.saucedemo.com/');
+  await page.goto(testUser.url);
 
   const loginPage = new LoginPage(page);
   const inventoryPage = new InventoryPage(page);
