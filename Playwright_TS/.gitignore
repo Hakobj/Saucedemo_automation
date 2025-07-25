@@ -1,0 +1,33 @@
+# Node dependencies
+/node_modules/
+
+# Playwright test artifacts
+/test-results/
+/playwright-report/
+
+# Build output
+/dist/
+/out/
+
+# TypeScript cache and logs
+*.tsbuildinfo
+*.log
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# npm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional OS files
+.DS_Store
+Thumbs.db
