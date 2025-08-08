@@ -8,6 +8,9 @@ This project contains end-to-end UI tests for https://www.saucedemo.com using:
 - 📄 HTML Reports via `pytest-html`
 - 🧱 Page Object Model (POM) structure
 
+
+This is also experimenting new changes from Jason onto this branch.
+
 ---
 
 ### 📁 Project Structure
@@ -53,7 +56,13 @@ pytest .\tests\ # all tests
 pytest .\tests\test_checkout_flow.py # login test
 ```
 
-### 3. Running tests with HTML report:
+### 4. Running tests with HTML report:
 ```
 pytest .\tests\test_checkout_flow.py --html=report.html
+```
+
+### 5. Running tests in docker with headless mode
+```
+docker build -t selenium-tests .
+docker run -p 5002:5002 selenium_tests
 ```
