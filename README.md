@@ -56,7 +56,13 @@ pytest .\tests\ # all tests
 pytest .\tests\test_checkout_flow.py # login test
 ```
 
-### 3. Running tests with HTML report:
+### 4. Running tests with HTML report:
 ```
 pytest .\tests\test_checkout_flow.py --html=report.html
+```
+
+### 5. Running tests in docker with headless mode
+```
+docker build -t selenium-tests .
+docker run -p 5002:5002 selenium_tests
 ```
